@@ -8,6 +8,8 @@ import { UI } from 'astrowind:config';
   }
 
   window.basic_script = true;
+  const HEADER_SCROLL_ON = 24;
+  const HEADER_SCROLL_OFF = 8;
 
   function applyTheme(theme) {
     if (theme === 'dark') {
@@ -122,9 +124,11 @@ import { UI } from 'astrowind:config';
     function applyHeaderStylesOnScroll() {
       const header = document.querySelector('#header[data-aw-sticky-header]');
       if (!header) return;
-      if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
+
+      // Use hysteresis to avoid rapid toggling around the threshold.
+      if (lastKnownScrollPosition > HEADER_SCROLL_ON && !header.classList.contains('scroll')) {
         header.classList.add('scroll');
-      } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
+      } else if (lastKnownScrollPosition <= HEADER_SCROLL_OFF && header.classList.contains('scroll')) {
         header.classList.remove('scroll');
       }
       ticking = false;
@@ -142,6 +146,27 @@ import { UI } from 'astrowind:config';
       }
     });
   };
+
+  function scrollToHashTarget(behavior = 'auto') {
+    const hash = window.location.hash;
+    if (!hash || hash === '#') return;
+
+    let target = document.getElementById(hash.slice(1));
+    if (!target) {
+      try {
+        target = document.querySelector(decodeURIComponent(hash));
+      } catch {
+        /* empty */
+      }
+    }
+    if (!target) return;
+
+    const header = document.getElementById('header');
+    const headerOffset = (header?.getBoundingClientRect().height || 0) + 16;
+    const y = Math.max(0, window.scrollY + target.getBoundingClientRect().top - headerOffset);
+    window.scrollTo({ top: y, behavior });
+  }
+
   const onPageShow = function () {
     document.documentElement.classList.add('motion-safe:scroll-smooth');
     const elem = document.querySelector('[data-aw-toggle-menu]');
@@ -152,6 +177,10 @@ import { UI } from 'astrowind:config';
     document.getElementById('header')?.classList.remove('h-screen');
     document.getElementById('header')?.classList.remove('expanded');
     document.querySelector('#header nav')?.classList.add('hidden');
+
+    // Re-apply hash scrolling after route swaps/layout shifts.
+    setTimeout(() => scrollToHashTarget('auto'), 0);
+    requestAnimationFrame(() => scrollToHashTarget('auto'));
   };
 
   window.onload = onLoad;
@@ -161,6 +190,10 @@ import { UI } from 'astrowind:config';
     initTheme();
     onLoad();
     onPageShow();
+  });
+
+  window.addEventListener('hashchange', () => {
+    scrollToHashTarget('smooth');
   });
 </script>
 
