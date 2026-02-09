@@ -43,4 +43,3 @@ export const footerData = {
   footNote:
     'Conservation Constituency Blueprint 2026. Produced by Safari Park Dvur Kralove with support of the Ministry of the Environment of the Czech Republic.',
 };
-

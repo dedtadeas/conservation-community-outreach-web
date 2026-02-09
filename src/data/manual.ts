@@ -74,7 +74,11 @@ export const chapters: ManualChapter[] = [
       'Builds Theory of Change logic across Engagement, Education, and Economy components.',
       'Defines SMART indicators, CCI tracking, and monitoring loops for adaptive annual planning.',
     ],
-    topics: ['Theory of Change formulation', 'Monitoring outcomes and indicators', 'Communication practice and messaging'],
+    topics: [
+      'Theory of Change formulation',
+      'Monitoring outcomes and indicators',
+      'Communication practice and messaging',
+    ],
   },
   {
     slug: 'part-4',
@@ -124,4 +128,3 @@ export const chapters: ManualChapter[] = [
     topics: ['Overall recommendations', 'Useful tools and documents'],
   },
 ];
-

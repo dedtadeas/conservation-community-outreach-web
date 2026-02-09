@@ -62,19 +62,32 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
 
 <PageLayout metadata={metadata}>
   <section class="hero-section relative w-full overflow-hidden text-white">
-    <img src={heroImage.src} alt="Giraffes in Akagera" class="hero-photo absolute inset-0 h-full w-full object-cover" loading="eager" />
+    <img
+      src={heroImage.src}
+      alt="Giraffes in Akagera"
+      class="hero-photo absolute inset-0 h-full w-full object-cover"
+      loading="eager"
+    />
     <div class="hero-overlay absolute inset-0"></div>
 
-    <div class="relative mx-auto flex min-h-[86svh] max-w-7xl flex-col justify-center px-6 py-20 md:min-h-[88vh] md:py-24">
+    <div
+      class="relative mx-auto flex min-h-[86svh] max-w-7xl flex-col justify-center px-6 py-20 md:min-h-[88vh] md:py-24"
+    >
       <p class="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#dfe8d8]">{manualMeta.version}</p>
-      <h1 class="max-w-4xl font-heading text-5xl leading-[1.02] md:text-7xl">Conservation x Education Guidance Manual</h1>
+      <h1 class="max-w-4xl font-heading text-5xl leading-[1.02] md:text-7xl">
+        Conservation x Education Guidance Manual
+      </h1>
       <p class="mt-6 max-w-3xl text-base leading-relaxed text-[#e8efe5] md:text-xl">
         A clear first version of the Akagera methodology to build conservation constituencies through the 3E+ framework:
         Engagement, Education, and Economy.
       </p>
 
       <div class="mt-9 flex flex-wrap gap-3">
-        <a href={manualMeta.pdfPath} download class="btn-primary !bg-[#6e8e62] !border-[#6e8e62] hover:!bg-[#5e7b54] hover:!border-[#5e7b54]">
+        <a
+          href={manualMeta.pdfPath}
+          download
+          class="btn-primary !bg-[#6e8e62] !border-[#6e8e62] hover:!bg-[#5e7b54] hover:!border-[#5e7b54]"
+        >
           Download the guide
           <Icon name="tabler:download" class="ml-2 h-5 w-5" />
         </a>
@@ -89,7 +102,9 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
         </button>
         <a href="#project" class="btn-secondary !border-[#dce7d4] !text-white hover:!bg-white/15">Learn more</a>
       </div>
-      <p id="toolbox-note" class="mt-3 hidden text-sm text-[#dce7d4]">Toolbox is in preparation and will be ready for download soon.</p>
+      <p id="toolbox-note" class="mt-3 hidden text-sm text-[#dce7d4]">
+        Toolbox is in preparation and will be ready for download soon.
+      </p>
 
       <div class="mt-10 grid max-w-4xl grid-cols-1 gap-3 text-sm md:grid-cols-3">
         <div class="rounded-2xl border border-white/20 bg-white/10 px-4 py-4 backdrop-blur">
@@ -126,7 +141,12 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
         </div>
       </div>
       <div class="rounded-3xl border border-black/10 bg-white p-3 shadow-[0_20px_46px_rgba(32,54,40,0.16)]">
-        <img src={objectivesImage.src} alt="Objectives of the 3E components" class="w-full rounded-2xl object-cover" loading="lazy" />
+        <img
+          src={objectivesImage.src}
+          alt="Objectives of the 3E components"
+          class="w-full rounded-2xl object-cover"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
@@ -151,7 +171,12 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
   <section class="w-full bg-[#f6f7f2]">
     <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-[0.95fr_1.05fr] md:items-start md:py-20">
       <div class="rounded-3xl border border-black/10 bg-white p-3 shadow-[0_20px_44px_rgba(38,53,42,0.14)]">
-        <img src={stepsImage.src} alt="Steps of strategy formulation" class="w-full rounded-2xl object-cover" loading="lazy" />
+        <img
+          src={stepsImage.src}
+          alt="Steps of strategy formulation"
+          class="w-full rounded-2xl object-cover"
+          loading="lazy"
+        />
       </div>
       <div>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">How it was developed</p>
@@ -160,7 +185,7 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
           {
             processSteps.map((step) => (
               <li class="flex gap-3 rounded-2xl border border-[#d7dfcf] bg-white px-4 py-4 text-[#2e4135]">
-                <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#6b8b61]"></span>
+                <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#6b8b61]" />
                 <span>{step}</span>
               </li>
             ))
@@ -174,7 +199,9 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
     <div class="mx-auto max-w-7xl px-6 py-16 md:py-20">
       <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Guide structure</p>
       <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">Chapters with dedicated pages</h2>
-      <p class="mt-4 max-w-3xl text-[#33453a]">All chapter parts are combined on one heavy chapters page with direct section anchors.</p>
+      <p class="mt-4 max-w-3xl text-[#33453a]">
+        All chapter parts are combined on one heavy chapters page with direct section anchors.
+      </p>
 
       <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {
@@ -204,7 +231,9 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
     <div class="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-[1.15fr_0.85fr] md:items-center md:py-20">
       <div>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Akagera case study</p>
-        <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">Map and field evidence moved to a separate page</h2>
+        <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">
+          Map and field evidence moved to a separate page
+        </h2>
         <p class="mt-5 max-w-3xl text-base leading-relaxed text-[#33473c]">
           Explore the full Akagera case page with map, process figures, and image references from field implementation.
         </p>
@@ -217,20 +246,31 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
         </a>
       </div>
       <div class="rounded-3xl border border-black/10 bg-white p-3 shadow-[0_18px_38px_rgba(31,47,36,0.13)]">
-        <img src={akageraTeaser.src} alt="Akagera wildlife context" class="w-full rounded-2xl object-cover" loading="lazy" />
+        <img
+          src={akageraTeaser.src}
+          alt="Akagera wildlife context"
+          class="w-full rounded-2xl object-cover"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
 
   <section class="w-full bg-[#2d4334] text-white">
-    <div class="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 py-16 md:flex-row md:items-center md:justify-between md:py-20">
+    <div
+      class="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 py-16 md:flex-row md:items-center md:justify-between md:py-20"
+    >
       <div>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#c9d7c0]">Ready to use</p>
         <h2 class="mt-3 font-heading text-4xl leading-tight md:text-5xl">Download the full guidance manual</h2>
         <p class="mt-4 max-w-2xl text-[#dbe5d5]">Primary document for implementation teams and partners.</p>
       </div>
       <div class="flex flex-wrap gap-3">
-        <a href={manualMeta.pdfPath} download class="btn-primary !bg-[#89a86d] !border-[#89a86d] hover:!bg-[#78985d] hover:!border-[#78985d]">
+        <a
+          href={manualMeta.pdfPath}
+          download
+          class="btn-primary !bg-[#89a86d] !border-[#89a86d] hover:!bg-[#78985d] hover:!border-[#78985d]"
+        >
           Download PDF
           <Icon name="tabler:download" class="ml-2 h-5 w-5" />
         </a>
