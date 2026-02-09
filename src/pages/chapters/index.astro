@@ -1,0 +1,131 @@
+﻿---
+import { Icon } from 'astro-icon/components';
+
+import PageLayout from '~/layouts/PageLayout.astro';
+import { chapters, manualMeta } from '~/data/manual';
+import { getPermalink } from '~/utils/permalinks';
+
+import stepsImage from '~/assets/images/akagera/Figure_2_Steps_of_formulating_CDS_of_ANP.png';
+import objectivesImage from '~/assets/images/akagera/Figure_6_Objectives_of_each_component_of_the_ANP_CDS_2.png';
+import mapImage from '~/assets/images/akagera/Figure_1_ANP_Area_of_Intervention_Akagera_National_Park.png';
+import classroomImage from '~/assets/images/akagera/photo_04_wide.jpg';
+import readingImage from '~/assets/images/akagera/photo_16_wide.jpg';
+import elephantImage from '~/assets/images/akagera/photo_11_wide.jpg';
+
+const metadata = {
+  title: 'Chapters',
+  description: 'Full chapter view of the Conservation x Education Guidance Manual.',
+};
+
+const chapterImages: Record<string, { src: string }> = {
+  'part-1': mapImage,
+  'part-2': stepsImage,
+  'part-3': objectivesImage,
+  'part-4': classroomImage,
+  'part-5': readingImage,
+  'part-6': elephantImage,
+};
+---
+
+<PageLayout metadata={metadata}>
+  <section class="relative overflow-hidden border-b border-black/10 bg-[#e4eadb]">
+    <div class="mx-auto max-w-7xl px-6 py-14 md:py-20">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4a6855]">Manual overview</p>
+      <h1 class="mt-3 max-w-5xl font-heading text-4xl leading-tight text-[#203227] md:text-6xl">All Chapters on One Page</h1>
+      <p class="mt-5 max-w-4xl text-base leading-relaxed text-[#34473d] md:text-lg">
+        This page combines all six parts of the guidance manual in one scrollable structure. Use it to review the full framework,
+        jump between chapter sections, and open the PDF when needed.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={manualMeta.pdfPath} target="_blank" class="btn-primary !bg-[#5f7f58] !border-[#5f7f58] hover:!bg-[#4f6f49] hover:!border-[#4f6f49]">
+          Download full manual
+          <Icon name="tabler:download" class="ml-2 h-5 w-5" />
+        </a>
+        <a href={getPermalink('/')} class="btn-secondary !border-[#5f7f58] !text-[#2f4436] hover:!bg-[#dbe4d2]">Back to landing page</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#f4f6ef]">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[280px_minmax(0,1fr)] lg:py-18">
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <div class="rounded-3xl border border-[#ccd6c2] bg-white p-5 shadow-[0_14px_30px_rgba(31,48,37,0.08)]">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#547261]">Jump to chapter</p>
+          <ul class="mt-4 space-y-2">
+            {
+              chapters.map((chapter) => (
+                <li>
+                  <a href={`#${chapter.slug}`} class="block rounded-xl border border-[#d9e1d0] px-3 py-2 text-sm text-[#2f4436] hover:border-[#7f9a73] hover:bg-[#f2f6ec]">
+                    <span class="font-semibold">{chapter.label}</span>
+                    <span class="block text-xs text-[#5e7466]">{chapter.title}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <a href={getPermalink('/akagera-case-study')} class="mt-5 inline-flex items-center text-sm font-semibold text-[#345342] hover:text-[#243c30]">
+            Open Akagera Case Study
+            <Icon name="tabler:arrow-up-right" class="ml-1 h-4 w-4" />
+          </a>
+        </div>
+      </aside>
+
+      <div class="space-y-8">
+        {
+          chapters.map((chapter) => (
+            <section id={chapter.slug} class="rounded-3xl border border-[#d5decb] bg-white p-5 shadow-[0_18px_34px_rgba(30,48,36,0.08)] md:p-8">
+              <div class="grid gap-7 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#547261]">{chapter.label} - {chapter.pageRange}</p>
+                  <h2 class="mt-2 text-3xl font-semibold leading-tight text-[#24382d] md:text-4xl">{chapter.title}</h2>
+                  <p class="mt-4 text-base leading-relaxed text-[#36493e]">{chapter.summary}</p>
+
+                  <div class="mt-5 space-y-3">
+                    {
+                      chapter.detail.map((line) => (
+                        <p class="text-sm leading-relaxed text-[#415449]">{line}</p>
+                      ))
+                    }
+                  </div>
+
+                  <div class="mt-6">
+                    <p class="text-sm font-semibold uppercase tracking-[0.15em] text-[#577564]">Key coverage</p>
+                    <ul class="mt-3 grid gap-2 md:grid-cols-2">
+                      {
+                        chapter.topics.map((topic) => (
+                          <li class="rounded-xl border border-[#dbe4d1] bg-[#f8faf5] px-3 py-2 text-sm text-[#2f4337]">{topic}</li>
+                        ))
+                      }
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-black/10 bg-[#f7f8f3] p-2">
+                  <img
+                    src={(chapterImages[chapter.slug] ?? stepsImage).src}
+                    alt={`${chapter.label} visual`}
+                    class="w-full rounded-xl object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#2f4335] text-white">
+    <div class="mx-auto flex max-w-7xl flex-col items-start gap-5 px-6 py-14 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#c7d6be]">Need the source document?</p>
+        <h2 class="mt-2 font-heading text-3xl md:text-4xl">Download the complete PDF manual</h2>
+      </div>
+      <a href={manualMeta.pdfPath} target="_blank" class="btn-primary !bg-[#86a769] !border-[#86a769] hover:!bg-[#75955b] hover:!border-[#75955b]">
+        Download PDF
+        <Icon name="tabler:download" class="ml-2 h-5 w-5" />
+      </a>
+    </div>
+  </section>
+</PageLayout>
