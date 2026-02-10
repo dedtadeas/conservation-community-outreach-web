@@ -100,6 +100,7 @@ For team members without technical background:
 3. Changes appear live at the GitHub Pages URL within a few minutes
 
 To use this branch:
+
 ```bash
 git checkout content-updates
 # Make your changes to content files
