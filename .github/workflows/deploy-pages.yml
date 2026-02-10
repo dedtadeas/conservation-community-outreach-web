@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - content-updates
+      - copilot/fix-menu-links-scroll
   workflow_dispatch:
 
 permissions:
