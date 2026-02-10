@@ -10,7 +10,7 @@ export const headerData = {
         { text: 'All Chapters', href: getPermalink('/chapters') },
         ...chapters.map((chapter) => ({
           text: `${chapter.label}: ${chapter.title}`,
-          href: `${getPermalink('/chapters')}#${chapter.slug}`,
+          href: `${getPermalink('/chapters')}/#${chapter.slug}`,
         })),
       ],
     },
