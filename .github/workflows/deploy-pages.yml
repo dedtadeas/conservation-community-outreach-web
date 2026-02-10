@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - content-updates
   workflow_dispatch:
 
 permissions:
