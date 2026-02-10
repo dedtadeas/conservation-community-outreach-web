@@ -179,7 +179,7 @@ import { UI } from 'astrowind:config';
     document.querySelector('#header nav')?.classList.add('hidden');
 
     // Re-apply hash scrolling after route swaps/layout shifts.
-    setTimeout(() => scrollToHashTarget('auto'), 0);
+    setTimeout(() => scrollToHashTarget('auto'), 100);
     requestAnimationFrame(() => scrollToHashTarget('auto'));
   };
 
