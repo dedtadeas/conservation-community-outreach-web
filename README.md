@@ -89,7 +89,24 @@ Site configuration for Pages:
   - `site.site: https://dedtadeas.github.io`
   - `site.base: /conservation-community-outreach-web`
 
-On every push to `main`, GitHub Actions builds and deploys `dist/` to Pages.
+On every push to `main` or `content-updates`, GitHub Actions builds and deploys `dist/` to Pages.
+
+### Content Updates Branch
+
+For team members without technical background:
+
+1. The `content-updates` branch is set up for making content changes
+2. When you push commits to this branch, the website automatically rebuilds and deploys
+3. Changes appear live at the GitHub Pages URL within a few minutes
+
+To use this branch:
+```bash
+git checkout content-updates
+# Make your changes to content files
+git add .
+git commit -m "Update content"
+git push
+```
 
 ## Notes
 
