@@ -6,55 +6,89 @@ import { chapters, manualMeta } from '~/data/manual';
 import { getPermalink } from '~/utils/permalinks';
 
 import heroImage from '~/assets/images/akagera/photo_03_wide.jpg';
-import stepsImage from '~/assets/images/akagera/Figure_2_Steps_of_formulating_CDS_of_ANP.png';
-import objectivesImage from '~/assets/images/akagera/Figure_6_Objectives_of_each_component_of_the_ANP_CDS_2.png';
-import akageraTeaser from '~/assets/images/akagera/photo_11_wide.jpg';
 
 const metadata = {
-  title: manualMeta.title,
+  title: 'Community management Framework for National Parks',
   ignoreTitleTemplate: true,
   description: manualMeta.projectSummary,
 };
 
-const focusAreas = [
+const frameworkSteps = [
   {
-    title: 'Engagement',
-    description: 'Represent communities and local authorities in park planning and dialogue.',
-    tone: 'bg-[#bf534f] text-white',
+    number: 1,
+    title: 'Setting the scene',
+    bullets: [
+      'Who to be included in the process and how',
+      'Conducting a comprehensive community and stakeholder analysis',
+      'Defining objectives',
+    ],
   },
   {
-    title: 'Education',
-    description: 'Build skills and conservation literacy through practical school and community work.',
-    tone: 'bg-[#97b45a] text-white',
+    number: 2,
+    title: 'Targeting',
+    bullets: [
+      'Identification of the problems',
+      'Identification of target groups',
+      'Prioritisation of the problems and objectives',
+    ],
   },
   {
-    title: 'Economy',
-    description: 'Connect livelihoods with conservation value and reduce pressure on park resources.',
-    tone: 'bg-[#7f67a8] text-white',
+    number: 3,
+    title: 'Focusing on target',
+    bullets: [
+      'Formulating desired behaviours',
+      'Analyze barriers to best practices',
+      'Develop key messages to support behaviour change',
+    ],
+  },
+  {
+    number: 4,
+    title: 'Designing',
+    bullets: [
+      'Determination of outreach components',
+      'Set result and impact indicators',
+    ],
+  },
+  {
+    number: 5,
+    title: 'Implementing & monitoring',
+    bullets: [
+      'Use of indicators in adaptive management',
+    ],
   },
 ];
 
-const briefingCards = [
+const expectedImpact = [
   {
-    title: 'What it is for',
-    text: manualMeta.briefing.whatItIs,
+    icon: 'tabler:target-arrow',
+    title: 'Effective planning',
+    text: 'Strategic planning of the teams moves beyond general concepts to specific applications.',
   },
   {
-    title: 'Why it was developed',
-    text: manualMeta.briefing.whyDeveloped,
+    icon: 'tabler:rocket',
+    title: 'Effective implementation',
+    text: 'The teams get proficient in use of Social behavior change orientation.',
   },
   {
-    title: 'Who it helps',
-    text: manualMeta.briefing.whoItHelps,
+    icon: 'tabler:clipboard-check',
+    title: 'Field validation as a standard practice',
+    text: 'The team engages in practical exercises to validate their assumptions about target groups and messages directly with community members. This includes assessing the relevance of identified problems and messages to specific groups.',
   },
-];
-
-const processSteps = [
-  'On-job training and first diagnostics (November 2023)',
-  'Internal analysis and first strategy drafts',
-  'Consultation sessions with experts (November 2024)',
-  'CDD finalization and strategy approvals',
-  'Next step: in-depth socioeconomic and behaviour surveys',
+  {
+    icon: 'tabler:chart-bar',
+    title: 'Advanced analytic tools',
+    text: 'Ability to use advanced tools like the Barrier Analysis for teachers regarding Human-Wildlife Conflict (HWC) or the Key Informant Interviews.',
+  },
+  {
+    icon: 'tabler:puzzle',
+    title: 'Strategic Integration',
+    text: 'Use of Bridges to activities tools, integrating specific activities into the broader community strategy. This ensures that every activity has a clear strategic purpose and is not conducted in isolation.',
+  },
+  {
+    icon: 'tabler:gauge',
+    title: 'Monitoring framework definition',
+    text: 'The team defines specific indicators for strategic monitoring, ensuring that the impact of activities could be tracked and measured over time.',
+  },
 ];
 
 const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5f', '#546f79'];
@@ -75,11 +109,10 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
     >
       <p class="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#dfe8d8]">{manualMeta.version}</p>
       <h1 class="max-w-4xl font-heading text-5xl leading-[1.02] md:text-7xl">
-        Conservation x Education Guidance Manual
+        Community management Framework for National Parks
       </h1>
       <p class="mt-6 max-w-3xl text-base leading-relaxed text-[#e8efe5] md:text-xl">
-        A clear first version of the Akagera methodology to build conservation constituencies through the 3E+ framework:
-        Engagement, Education, and Economy.
+        Methodological overview of building Conservation constituencies. Practical steps to harmonise conservation and community outreach within one strategy.
       </p>
 
       <div class="mt-9 flex flex-wrap gap-3">
@@ -100,7 +133,6 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
         >
           Download Toolbox
         </button>
-        <a href="#project" class="btn-secondary !border-[#dce7d4] !text-white hover:!bg-white/15">Learn more</a>
       </div>
       <p id="toolbox-note" class="mt-3 hidden text-sm text-[#dce7d4]">
         Toolbox is in preparation and will be ready for download soon.
@@ -123,74 +155,118 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
     </div>
   </section>
 
+  <!-- What this guidance delivers -->
   <section id="project" class="w-full bg-[#eff2e9]">
-    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Project overview</p>
-        <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">What this guidance delivers</h2>
-        <p class="mt-5 max-w-2xl text-base leading-relaxed text-[#304238] md:text-lg">{manualMeta.projectSummary}</p>
-        <div class="mt-8 grid gap-3 sm:grid-cols-3">
-          {
-            focusAreas.map((area) => (
-              <article class:list={['rounded-2xl px-5 py-6 shadow-sm', area.tone]}>
-                <h3 class="text-xl font-semibold">{area.title}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-white/90">{area.description}</p>
+    <div class="mx-auto max-w-7xl px-6 py-16 md:py-20">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Overview</p>
+      <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">What this guidance delivers</h2>
+      <p class="mt-5 max-w-3xl text-base leading-relaxed text-[#304238] md:text-lg">
+        A field-ready manual for Community Outreach Teams to design conservation outreach as a measurable strategy, not a list of activities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why is this Framework worth my attention -->
+  <section class="w-full border-y border-black/5 bg-[#f6f7f2]">
+    <div class="mx-auto max-w-7xl px-6 py-16 md:py-20">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Core rationale</p>
+      <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">Why is this Framework worth my attention</h2>
+      <p class="mt-5 max-w-3xl text-base leading-relaxed text-[#304238] md:text-lg">
+        The framework implies a fundamental transition: the relationship of communities with a national park is meant to evolve from one based on enforced exclusion (protectionism) to one rooted in shared value and mutual accommodation (coexistence), achieved by providing benefits with minimum cost to the community.
+      </p>
+      <p class="mt-5 max-w-3xl text-base font-bold leading-relaxed text-[#1f3226] md:text-lg">
+        "While enforced protection remains necessary in the short term, the ultimate vision is a socio-ecologically resilient landscape where biodiversity thrives because local communities willingly choose conservation as the best land-use outcome."
+      </p>
+
+      <div class="mt-10">
+        <h3 class="text-2xl font-semibold text-[#24372c]">Who it helps</h3>
+        <p class="mt-3 max-w-3xl text-base leading-relaxed text-[#304238] md:text-lg">
+          Primary users are park community teams and managers, with direct value for district authorities, teachers, community leaders, and implementation partners.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Framework - Stepper -->
+  <section class="w-full bg-[#eff2e9]">
+    <div class="mx-auto max-w-7xl px-6 py-16 md:py-20">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Process</p>
+      <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">The Framework</h2>
+
+      <!-- Desktop: 5 cards in one row with connectors -->
+      <div class="mt-10 hidden lg:flex lg:items-start lg:gap-0">
+        {
+          frameworkSteps.map((step, i) => (
+            <Fragment>
+              <article class="flex-1 rounded-2xl border border-[#d3dcc9] bg-white px-4 py-5 shadow-[0_12px_24px_rgba(30,49,37,0.07)]">
+                <span class="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#4f6957] text-sm font-bold text-white">
+                  {step.number}
+                </span>
+                <h3 class="text-lg font-semibold text-[#24372c]">{step.title}</h3>
+                <ul class="mt-3 space-y-1.5">
+                  {step.bullets.map((bullet) => (
+                    <li class="flex gap-2 text-sm leading-relaxed text-[#3b4f43]">
+                      <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#6b8b61]" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
               </article>
+              {i < frameworkSteps.length - 1 && (
+                <div class="flex shrink-0 items-center px-1 pt-10">
+                  <Icon name="tabler:chevron-right" class="h-5 w-5 text-[#6b8b61]" />
+                </div>
+              )}
+            </Fragment>
+          ))
+        }
+      </div>
+
+      <!-- Mobile: vertical stepper with left connector line -->
+      <div class="mt-10 lg:hidden">
+        <div class="relative ml-4 border-l-2 border-[#6b8b61]/40 pl-6">
+          {
+            frameworkSteps.map((step) => (
+              <div class="relative mb-8 last:mb-0">
+                <span class="absolute -left-[calc(1.5rem+1px)] top-0 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#4f6957] text-sm font-bold text-white">
+                  {step.number}
+                </span>
+                <article class="rounded-2xl border border-[#d3dcc9] bg-white px-4 py-5 shadow-[0_12px_24px_rgba(30,49,37,0.07)]">
+                  <h3 class="text-lg font-semibold text-[#24372c]">{step.title}</h3>
+                  <ul class="mt-3 space-y-1.5">
+                    {step.bullets.map((bullet) => (
+                      <li class="flex gap-2 text-sm leading-relaxed text-[#3b4f43]">
+                        <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#6b8b61]" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
             ))
           }
         </div>
       </div>
-      <div class="rounded-3xl border border-black/10 bg-white p-3 shadow-[0_20px_46px_rgba(32,54,40,0.16)]">
-        <img
-          src={objectivesImage.src}
-          alt="Objectives of the 3E components"
-          class="w-full rounded-2xl object-cover"
-          loading="lazy"
-        />
-      </div>
     </div>
   </section>
 
+  <!-- Expected Impact -->
   <section class="w-full border-y border-black/5 bg-[#f6f7f2]">
     <div class="mx-auto max-w-7xl px-6 py-16 md:py-20">
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Manual briefing</p>
-      <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">Why this project was built</h2>
-      <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Outcomes</p>
+      <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">Expected Impact of the guidance content on teams and processes</h2>
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {
-          briefingCards.map((card) => (
+          expectedImpact.map((item) => (
             <article class="rounded-2xl border border-[#d3dcc9] bg-white px-5 py-5 shadow-[0_12px_24px_rgba(30,49,37,0.07)]">
-              <h3 class="text-lg font-semibold text-[#24372c]">{card.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-[#3b4f43]">{card.text}</p>
+              <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#4f6957] text-white">
+                <Icon name={item.icon} class="h-5 w-5" />
+              </div>
+              <h3 class="text-lg font-semibold text-[#24372c]">{item.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-[#3b4f43]">{item.text}</p>
             </article>
           ))
         }
-      </div>
-    </div>
-  </section>
-
-  <section class="w-full bg-[#f6f7f2]">
-    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-[0.95fr_1.05fr] md:items-start md:py-20">
-      <div class="rounded-3xl border border-black/10 bg-white p-3 shadow-[0_20px_44px_rgba(38,53,42,0.14)]">
-        <img
-          src={stepsImage.src}
-          alt="Steps of strategy formulation"
-          class="w-full rounded-2xl object-cover"
-          loading="lazy"
-        />
-      </div>
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">How it was developed</p>
-        <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">Akagera process in brief</h2>
-        <ul class="mt-8 space-y-3">
-          {
-            processSteps.map((step) => (
-              <li class="flex gap-3 rounded-2xl border border-[#d7dfcf] bg-white px-4 py-4 text-[#2e4135]">
-                <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#6b8b61]" />
-                <span>{step}</span>
-              </li>
-            ))
-          }
-        </ul>
       </div>
     </div>
   </section>
@@ -223,35 +299,6 @@ const chapterBorderColors = ['#3f5644', '#62835d', '#8d7456', '#91789f', '#6d8f5
             </article>
           ))
         }
-      </div>
-    </div>
-  </section>
-
-  <section class="w-full border-y border-black/5 bg-[#edf1e6]">
-    <div class="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-[1.15fr_0.85fr] md:items-center md:py-20">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#4f6957]">Akagera case study</p>
-        <h2 class="mt-3 font-heading text-4xl leading-tight text-[#1f3226] md:text-5xl">
-          Map and field evidence moved to a separate page
-        </h2>
-        <p class="mt-5 max-w-3xl text-base leading-relaxed text-[#33473c]">
-          Explore the full Akagera case page with map, process figures, and image references from field implementation.
-        </p>
-        <a
-          href={getPermalink('/akagera-case-study')}
-          class="mt-7 inline-flex items-center rounded-full border border-[#5f7f58] px-5 py-3 text-sm font-semibold text-[#2e4435] transition hover:bg-[#dae4d1]"
-        >
-          Open Akagera Case Study
-          <Icon name="tabler:arrow-up-right" class="ml-2 h-4 w-4" />
-        </a>
-      </div>
-      <div class="rounded-3xl border border-black/10 bg-white p-3 shadow-[0_18px_38px_rgba(31,47,36,0.13)]">
-        <img
-          src={akageraTeaser.src}
-          alt="Akagera wildlife context"
-          class="w-full rounded-2xl object-cover"
-          loading="lazy"
-        />
       </div>
     </div>
   </section>
