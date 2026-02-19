@@ -18,9 +18,9 @@ metadata:
   openGraph:
     site_name: Akagera Guidance
     images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
+      - url: '~/assets/images/akagera/photo_03_wide.jpg'
+        width: 1950
+        height: 1300
     type: website
   twitter:
     handle: null
